@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+
+    <!-- Blog Start -->
+    <div class="container pt-5">
+        <div class="d-flex flex-column text-center mb-5 pt-5">
+            <h4 class="text-secondary mb-3">Tienda</h4>
+            <h1 class="display-4 m-0"><span class="text-primary">Los mejores</span> Productos</h1>
+        </div>
+
+        <style>
+            
+.card-img-top {
+    height: 150px; 
+    object-fit: cover;
+    transition: transform 0.3s ease; 
+}
+
+
+.card-img-top:hover {
+    transform: scale(1.1); 
+}
+
+
+.card {
+    margin-bottom: 1em; 
+}
+
+.card-body {
+    padding: 0.5em; 
+}
+
+
+.team-social p {
+    margin: 0; 
+    padding: 0.5em; 
+    font-size: 1em; 
+}
+
+        </style>
+        <div class="container">
+            <div class="row">
+                {% for producto in productos %}
+                <div class="col-lg-3 col-md-6">
+                    <div class="team card position-relative overflow-hidden border-0 mb-4">
+                        <img class="card-img-top" src='{{ producto.foto_produ.url }}' alt="">
+                        <div class="card-body text-center p-0">
+                            <div class="team-text d-flex flex-column justify-content-center bg-light">
+                                <h5>{{ producto.nomb_produ }}</h5>
+                            </div>
+                            <div class="team-social d-flex align-items-center justify-content-center bg-dark">
+                                <p>$ {{ producto.prec_produ }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+            
+            
+    <!-- Blog End -->
+
+    {% endblock %}
+
+    
+
+
+   

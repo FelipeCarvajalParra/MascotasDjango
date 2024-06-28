@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<!-- Services Start -->
+<div class="container pt-5">
+    <div class="d-flex flex-column text-center mb-5 pt-5">
+        <h4 class="text-secondary mb-3">Servicios</h4>
+        <h1 class="display-4 m-0"><span class="text-primary">Spa, guarderia</span> y mucho mas</h1>
+    </div>
+    <div class="row pb-3">
+        <style>
+            .card-img-top {
+                height: 190px; 
+                object-fit: cover;
+                transition: transform 0.3s ease; 
+            }
+
+            .card-body{
+                height: 250px;
+            }
+            
+        </style>
+        
+        {% for servicio in servicios %}
+        <div class="col-lg-4 mb-4">
+            <div class="card border-0 mb-2">
+                <img class="card-img-top" src='{{ servicio.imag_serv.url }}'>
+                <div class="card-body bg-light p-4">
+                    <h6 class="card-title text-truncate">{{servicio.nomb_serv}}</h6>
+                    <p>{{ servicio.desc_serv }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+        
+    </div>
+    
+</div>
+<!-- Services End -->
+
+{% endblock %}
+   

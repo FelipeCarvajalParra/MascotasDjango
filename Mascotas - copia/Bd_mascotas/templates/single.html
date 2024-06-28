@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+
+    {% for pos in post %}
+    <!-- Detail Start -->
+    <div class="container py-5">
+        <div class="row pt-5">
+            <div class="col-lg-8">
+                <div class="d-flex flex-column text-left mb-4">
+                    <h4 class="text-secondary mb-3">Blog</h4>
+                    <h1 class="mb-3">{{pos.titu_post}}</h1>
+                    <div class="d-index-flex mb-2">
+                        <p>{{pos.fech_post|date:"SHORT_DATE_FORMAT"}}</p>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <img class="img-fluid w-100 mb-4" src="{{pos.foto_post.url}}" alt="Image">
+                    <p>{{pos.cont_post}}</p>
+                    
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mt-5 mt-lg-0">
+                <div class="mb-5">
+                    <h3 class="mb-4">Categoria</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{pos.categorias}}
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mb-5">
+                    <h3 class="mb-4">Publicado por</h3>
+                    <div class="d-flex align-items-center border-bottom mb-3 pb-3">
+                        <img class="img-fluid" src="{{pos.id_persona.foto_usuar.url}}" style="width: 80px; height: 80px;" alt="">
+                        <div class="d-flex flex-column pl-3">
+                            <a class="text-dark mb-2" href="">{{pos.id_persona.nomb_usuar}}</a>
+                            <div class="d-flex">
+                                {% if pos.id_persona.tipo_usuar == 1 %}
+                                    <small class="mr-3"><i class="fa fa-user text-muted"></i> Cliente</small>
+                                {% else %}
+                                    <small class="mr-3"><i class="fa fa-user text-muted"></i> Admin</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- Detail End -->
+
+{% endblock %}
+    

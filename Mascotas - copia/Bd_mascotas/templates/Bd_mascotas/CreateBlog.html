@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<div class="container-fluid pt-5">
+    <div class="d-flex flex-column text-center mb-5 pt-5">
+        <h4 class="text-secondary mb-3">Crear publicacion</h4>
+        <h1 class="display-4 m-0">Comparte ideas <span class="text-primary">con todos</span></h1>
+    </div>
+
+    <form action="" style="width: 50%;" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{form|crispy}}
+
+        <div>
+            <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Publicar</button>
+        </div>
+    </form>
+    
+</div>
+
+{% endblock %}

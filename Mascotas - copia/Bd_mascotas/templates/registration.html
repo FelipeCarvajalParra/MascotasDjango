@@ -1,0 +1,133 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<!-- Contact Start -->
+<div class="container-fluid pt-5">
+    <div class="d-flex flex-column text-center mb-5 pt-5">
+        <h4 class="text-secondary mb-3">Registro</h4>
+        <h1 class="display-4 m-0">Bienvenid@, <span class="text-primary">Hora de registrarse</span></h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 mb-5">
+
+
+            <div class="contact-form">
+                <div id="success"></div>
+
+                <style>
+                    .control-group{
+                        height: 70px;
+                    }
+                    .form-control{
+                        height: 80%;
+                    }
+                    .validation, .validation2{
+                        display: none;
+                        color:  red;
+                    }
+                    
+                </style>
+
+                <form id="passworForm">
+
+                    <div style="display: flex;">
+                        <div class="control-group" style="width: 50%;">
+                            <input type="text" class="form-control" id="name" placeholder="Nombres" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+
+                        <div class="control-group" style="width: 50%;">
+                            <input type="text" class="form-control" id="email" placeholder="Apellidos" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex;">
+                        <div class="control-group" style="width: 50%;">
+                            <input type="number" class="form-control" id="name" placeholder="Documento" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group" style="width: 50%;">
+                            <input type="text" class="form-control" id="email" placeholder="Direccion" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group" style="width: 33.3%">
+                            <input type="number"  class="form-control" id="email" placeholder="Telefono" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex;">
+                        <div class="control-group" style="width: 50%">
+                            <input type="email"   class="form-control" id="correo" placeholder="Correo electronico" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+
+                        <div class="control-group" style="width: 50%">
+                            <input class="form-control" id="correo2" placeholder="Confirme Correo electronico" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="validation" id="validar_mensaje2"> 
+                        <p>Los correos no coinciden</p>
+                    </div>
+
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="email" placeholder="Nombre de usuario" required="required" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+                    <div style="display: flex;">
+                        <div class="control-group" style="width: 50%">
+                            <input type="text" class="form-control" id="password" placeholder="Contraseña" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+    
+                        <div class="control-group" style="width: 50%"> 
+                            <input type="text" class="form-control" id="password2" placeholder="Confirme Contraseña" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="validation" id="validar_mensaje"> 
+                        <p>Las contraseñas no coinciden</p>
+                    </div>
+                    
+                    <div>
+                        <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+<script>
+    document.getElementById('password2').addEventListener('input', function(){
+        const password = document.getElementById('password').value
+        const password2 = document.getElementById('password2').value
+        const validationMessage = document.getElementById('validar_mensaje')
+
+        if(password !== password2){
+            validationMessage.style.display = 'block';
+        }else{
+            validationMessage.style.display = 'none';
+        }
+
+    })
+
+
+    document.getElementById('correo2').addEventListener('input', function(){
+        const password = document.getElementById('correo').value
+        const password2 = document.getElementById('correo2').value
+        const validationMessage = document.getElementById('validar_mensaje2')
+
+        if(password !== password2){
+            validationMessage.style.display = 'block';
+        }else{
+            validationMessage.style.display = 'none';
+        }
+
+    })
+</script>
+
+{% endblock %}
